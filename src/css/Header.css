@@ -1,0 +1,117 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px; /* increased padding for full screen */
+  background-color: #004080;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.collegeName {
+  font-size: 1.8rem; /* slightly bigger */
+  font-weight: bold;
+}
+
+/* Navigation styles */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Links */
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem; /* increased font size */
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+/* Login button */
+.loginButton {
+  padding: 8px 16px; /* increased padding */
+  background-color: #0066cc;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem; /* increased font size */
+}
+
+.loginButton:hover {
+  background-color: #005bb5;
+}
+
+/* Burger menu button */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+}
+
+.burgerLine {
+  width: 28px;
+  height: 3.5px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Burger animation when open */
+.burgerOpen .burgerLine:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.burgerOpen .burgerLine:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.burgerOpen .burgerLine:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    background-color: #004080;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100vw; /* full viewport width */
+    padding: 30px 40px; /* extended padding */
+    border-radius: 0 0 0 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 15;
+  }
+
+  .navOpen {
+    transform: translateX(0);
+  }
+
+  .navLink, .loginButton {
+    margin: 15px 0;
+    font-size: 1.4rem; /* bigger font size on mobile */
+  }
+
+  .burger {
+    display: flex;
+  }
+}
