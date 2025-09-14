@@ -1,0 +1,80 @@
+/* Fullscreen container */
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 8s ease infinite;
+}
+
+/* Background animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Image styling with height control */
+.dashboard-image {
+  max-height: 80vh; /* 80% of viewport height */
+  border-bottom: 2px solid black;
+  width: auto;      /* keep aspect ratio */
+  max-width: 90%;   /* prevent overflow on small screens */
+  border-radius: 12px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+  object-fit: contain; /* scale image without cutting */
+}
+
+/* Hover effect */
+.dashboard-image:hover {
+  transform: scale(1.03);
+}
+
+/* Loading message */
+.loading-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  animation: pulse 1.5s infinite;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .dashboard-image {
+    max-height: 70vh;
+    max-width: 95%;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .dashboard-image {
+    max-height: 60vh;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+}

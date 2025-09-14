@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from './layouts/Header'
+import Landingpage from './pages/Landingpage.js'
 
 function App() {
   return (
     <div>
-      <Header />
+      <Landingpage />
     </div>
   )
 }
