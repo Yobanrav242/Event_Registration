@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import "../css/Dashboard.css";
+import DemoImage from "../assets/Dashboard.jpg";  // Local image import
+
+const HEADER_HEIGHT = 72;
 
 const Dashboard = () => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -9,18 +12,28 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchImage = async () => {
-      const docRef = doc(db, "images", "dashboard");
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setImageUrl(docSnap.data().url);
-        setTimeout(() => setShowImage(true), 2000);
+      try {
+        const docRef = doc(db, "images", "dashboard");
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists() && docSnap.data().url?.trim() !== "") {
+          setImageUrl(docSnap.data().url);
+        } else {
+          setImageUrl(DemoImage);  // Use local image fallback
+        }
+      } catch (error) {
+        setImageUrl(DemoImage);    // Use local image fallback on error
+      } finally {
+        setShowImage(true);
       }
     };
     fetchImage();
   }, []);
 
   return (
-    <div className="dashboard-container">
+    <div
+      className="dashboard-container"
+      style={{ height: `calc(100vh - ${HEADER_HEIGHT}px)` }}
+    >
       {showImage && imageUrl ? (
         <img src={imageUrl} alt="Dashboard" className="dashboard-image" />
       ) : (

@@ -1,0 +1,36 @@
+.events-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.event-tabs {
+  margin-bottom: 20px;
+}
+
+.event-tabs button {
+  background: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.event-tabs button.active {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.event-tabs button:hover {
+  background: #e0e0e0;
+}
+
+.event-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}

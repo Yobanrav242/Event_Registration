@@ -1,0 +1,58 @@
+/* Container for event cards with responsive grid layout */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns on desktop */
+  gap: 32px;                                        /* space between cards */
+  justify-items: center;                            /* center cards horizontally */
+  padding: 32px 0 0 0;                             /* top padding */
+  width: 100%;                                     /* full width container */
+  max-width: 1200px;                               /* max width to avoid too wide rows */
+  margin: 0 auto;                                  /* center container on page */
+  box-sizing: border-box;                          /* include padding in width */
+}
+
+/* Individual event card styling */
+.event-card {
+  width: 100%;                                     /* fill column width */
+  max-width: 340px;                                /* max card width */
+  min-height: 210px;                               /* optional: consistent card height */
+  box-sizing: border-box;                          /* include padding in width */
+  
+  /* Add your card styles */
+  background: #ffffff;
+  color: #333;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive: 2 columns on tablets */
+@media (max-width: 1000px) {
+  .event-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns */
+    max-width: 750px;                                /* narrower container */
+    gap: 24px;
+  }
+}
+
+/* Responsive: 1 column on mobile */
+@media (max-width: 600px) {
+  .event-grid {
+    grid-template-columns: 1fr;                      /* single column */
+    max-width: 99vw;                                 /* almost full viewport width */
+    gap: 16px;
+    padding: 20px 0 0 0;
+  }
+  .event-card {
+    max-width: 98vw;                                 /* card width nearly full width */
+  }
+}
